@@ -1,0 +1,20 @@
+.navbar {
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: bold;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: rgba(34, 102, 157, 0.3);
+}
+
+.navbar-name {
+  padding-bottom: 0.5rem;
+}
+
+.navbar-info {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #000000;
+  text-decoration: none;
+}
