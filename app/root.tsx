@@ -22,7 +22,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body style={{ margin: 0 }}>
+      <body style={{ backgroundColor: "#0D1823", margin: 0 }}>
         <Outlet />
         <ScrollRestoration />
         <Scripts />
