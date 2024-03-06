@@ -1,10 +1,14 @@
-import { LinksFunction } from "@remix-run/node";
-import styles from "~/styles/shared.css";
+import styles from "~/styles/about.css";
+import sharedStyles from "~/styles/shared.css";
 import ImageCarousel from "~/components/imagecarousel";
 import CustomNav from "~/components/customnav";
 
-export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
-
+export function links() {
+  return [
+    { rel: "stylesheet", href: sharedStyles },
+    { rel: "stylesheet", href: styles },
+  ];
+}
 export const loader = async () => {
   // Fetch data or return static data for the about page
   const data = {

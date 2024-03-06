@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  width: 90vw;
+}
+
+.content {
+  text-align: center;
+}
+
+.subtitle {
+  color: #34e397;
+  font-size: 1.2rem;
+}
+
+.title {
+  font-size: 3rem;
+}
+
+.description {
+  color: #e0e0e0;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.contactInfo {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.contactIcon {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-right: 1rem;
+}
+
+.contactTitle {
+  color: #ffffff;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.contactText {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #e0e0e0;
+}
