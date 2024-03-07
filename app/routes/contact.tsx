@@ -19,30 +19,25 @@ export default function Contact() {
           <div className="title">Contact Me</div>
           <p className="description">
             If you have any questions or would like to discuss potential
-            opportunities, please don't hesitate to reach out. I'll be happy to
+            opportunities, please dont hesitate to reach out. Ill be happy to
             connect with you.
           </p>
           <div className="contactInfo">
             <div className="contactItem">
-              <span className="contactIcon">📧</span>
-              <div>
-                <h3 className="contactTitle">Email</h3>
-                <p className="contactText">your@email.com</p>
-              </div>
+              <div className="contactIcon">📧</div>
+              <p className="contactText">scottyhenryy@me.com</p>
             </div>
             <div className="contactItem">
-              <span className="contactIcon">☎️</span>
-              <div>
-                <h3 className="contactTitle">Phone</h3>
-                <p className="contactText">+1 (123) 456-7890</p>
-              </div>
+              <div className="contactIcon">☎️</div>
+              <p className="contactText">123 456-7890</p>
             </div>
             <div className="contactItem">
-              <span className="contactIcon">📍</span>
-              <div>
-                <h3 className="contactTitle">Location</h3>
-                <p className="contactText">City, State, Country</p>
-              </div>
+              <div className="contactIcon">📍</div>
+              <p className="contactText">city, state, country</p>
+            </div>
+            <div className="contactItem">
+              <div className="contactIcon">🔗</div>
+              <p className="contactText">linkedin</p>
             </div>
           </div>
         </div>

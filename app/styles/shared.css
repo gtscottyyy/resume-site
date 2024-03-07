@@ -19,7 +19,7 @@
 .navbar-button {
   margin-left: 0.5rem;
   background-color: transparent;
-  border: 2px solid #ffffff;
+  border: 2px solid #34e397;
   border-radius: 5px;
   padding: 10px 20px;
   color: #ffffff;
@@ -42,7 +42,7 @@
 }
 
 .navbar-listitem:hover {
-  color: #ffffff2c;
+  color: #34e397;
   text-decoration: underline;
 }
 
@@ -89,7 +89,7 @@
 
 .button {
   background-color: transparent;
-  border: 2px solid #ffffff;
+  border: 2px solid #34e397;
   border-radius: 5px;
   padding: 10px 20px;
   color: #ffffff;
@@ -136,4 +136,26 @@
   font-size: 14px;
   cursor: pointer;
   width: 40%;
+}
+
+/* home button */
+.home-link {
+  margin-right: auto;
+  margin-left: 2rem;
+}
+
+.circle-icon {
+  width: 55px;
+  height: 55px;
+  border: 2px solid #34e397;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-icon img {
+  border-radius: 50%;
+  max-width: 100%;
+  max-height: 100%;
 }
