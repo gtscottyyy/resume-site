@@ -2,17 +2,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 99vh;
+  height: 80vh;
   width: 99vw;
 }
 
 .content {
+  max-height: 60%;
+  max-width: 75%;
   text-align: center;
-}
-
-.subtitle {
-  color: #34e397;
-  font-size: 1.2rem;
 }
 
 .title {
@@ -43,6 +40,11 @@
 .contactIcon {
   font-size: 2rem;
   color: #ffffff;
+  text-decoration: none;
+}
+
+.contactLink {
+  text-decoration: none;
 }
 
 .contactTitle {

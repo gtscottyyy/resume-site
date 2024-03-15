@@ -5,8 +5,11 @@ import HomeContent from "~/components/homecontent";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "Scotty Henry Home" },
+    {
+      name: "Home page/resume for Scotty Henry",
+      content: "Scotty Henry Resume",
+    },
   ];
 };
 

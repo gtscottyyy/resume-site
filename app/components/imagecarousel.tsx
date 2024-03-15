@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { LinksFunction } from "@remix-run/node";
 import styles from "~/styles/shared.css";
-import image1 from "../public/images/gojo.webp";
-import image2 from "../public/images/geto.jpeg";
+import image1 from "../public/images/goobs_smile.jpg";
+import image2 from "../public/images/family2.png";
+import image3 from "../public/images/goobs_work2.jpg";
+import image4 from "../public/images/family.jpg";
+import image5 from "../public/images/goobs_work.jpg";
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
 export default function ImageCarousel() {
   const [currentIndex, setCurrentIndex] = useState(1);
-  const images = [image1, image2];
+  const images = [image1, image2, image3, image4, image5];
 
   const handlePrevious = () => {
     setCurrentIndex((prevIndex) =>

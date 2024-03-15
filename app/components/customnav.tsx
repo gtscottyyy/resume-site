@@ -1,5 +1,5 @@
 import { Link } from "@remix-run/react";
-import image2 from "../public/images/geto.jpeg";
+import image2 from "../public/images/headshot.jpeg";
 
 export default function CustomNav() {
   return (
@@ -11,23 +11,20 @@ export default function CustomNav() {
       </a>
       <div className="navbar-info">
         <Link to={"/About"} prefetch="intent" className="navbar-listitem">
-          1. About
+          1. about
         </Link>
         <Link to={"/Experience"} className="navbar-listitem">
-          2. Experience
-        </Link>
-        <Link to={"/Work"} className="navbar-listitem">
-          3. Work
+          2. experience
         </Link>
         <Link to={"/Contact"} className="navbar-listitem">
-          4. Contact
+          3. contact
         </Link>
         <a
           href="https://drive.google.com/file/d/1aWUoPr_HfWGbzKeQfT76OFfs6T5c6kOe/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <button className="navbar-button">Resume</button>
+          <button className="navbar-button">resume</button>
         </a>
       </div>
     </div>

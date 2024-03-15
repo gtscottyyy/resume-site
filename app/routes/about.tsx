@@ -9,34 +9,46 @@ export function links() {
     { rel: "stylesheet", href: styles },
   ];
 }
-export const loader = async () => {
-  // Fetch data or return static data for the about page
-  const data = {
-    /* ... */
-  };
-  return data;
-};
 
 export default function About() {
   return (
     <div>
       <CustomNav />
-      {/* Todo: Delete some of these */}
       <div className="about-me-container">
         <div className="about-me-content">
           <div className="about-me-text">
-            <h1 className="about-me-title">About Me</h1>
+            <div className="about-subtitle">a little bit</div>
+            <div className="about-me-title">About Me</div>
             <p className="about-me-blurb">
-              {/* Your personal blurb goes here */}
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              euismod nisi vel ex finibus, vel facilisis tortor bibendum. Donec
-              semper auctor justo, vel lobortis mi finibus ac. Lorem ipsum dolor
-              sit amet, consectetur adipiscing elit. Sed euismod nisi vel ex
-              finibus, vel facilisis tortor bibendum. Donec semper auctor justo,
-              vel lobortis mi finibus ac.
+              Enthusiastic and results-driven software developer with four years
+              of experience, hailing from suburbs of vibrant Cincinnati, Ohio.
+              My journey in the tech industry has been fueled by a passion for
+              innovation and a relentless drive to stay at the forefront of
+              technological advancements.
+            </p>
+            <p className="about-me-blurb">
+              A tech aficionado at heart, I thrive on staying abreast of the
+              latest technological trends and breakthroughs. My curiosity drives
+              me to explore emerging technologies, ensuring that my skill set
+              remains cutting-edge and adaptable to the ever-evolving landscape
+              of the software development field.
+            </p>
+            <p className="about-me-blurb">
+              Beyond the realm of code, I find joy in diverse interests. An avid
+              anime enthusiast, I appreciate the creativity and storytelling
+              that the medium offers. In the gaming world, Im drawn to FPS video
+              games, relishing the challenge of strategic gameplay and immersive
+              experiences.
+            </p>
+            <p className="about-me-blurb">
+              While dedicated to my professional growth, I value a healthy
+              work-life balance. Spending quality time with family and my dog
+              Goobs are my favorite things.
             </p>
           </div>
-          <ImageCarousel />
+          <div className="carousel">
+            <ImageCarousel />
+          </div>
         </div>
       </div>
     </div>
