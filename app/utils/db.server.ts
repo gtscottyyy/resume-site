@@ -1,8 +1,8 @@
 import { MongoClient, BSON, Db, ServerApiVersion } from "mongodb";
 
-const connectionString: string = process.env.MONGO_URI!;
+const connectionString = process.env.MONGO_URI;
 
-const client = new MongoClient(connectionString, {
+const client = new MongoClient(connectionString ?? "", {
   serverApi: {
     version: ServerApiVersion.v1,
     strict: true,
