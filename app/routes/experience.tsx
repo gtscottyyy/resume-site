@@ -28,12 +28,7 @@ export default function Experience() {
         <div className="experience-content">
           <div className="experience-subtitle">{expCopy?.exp_blurb}</div>
           <div className="experience-title">{expCopy?.exp_title}</div>
-          <p className="experience-paragraph">
-            With the core of my experience being in mobile development (native
-            and cross platform), I have also worked on multiple web projects, as
-            well as webOS. Projects in fields like fintech, healthcare, AI/LLM
-            and e-commerce.
-          </p>
+          <p className="experience-paragraph">{expCopy?.exp_body}</p>
           <div className="list-container">
             <ul className="experience-list">
               <li className="experience-listItem">
