@@ -1,6 +1,9 @@
 import CustomNav from "~/components/customnav";
 import sharedStyles from "~/styles/shared.css";
 import styles from "~/styles/experience.css";
+import { connectToDatabase } from "~/utils/db.server";
+import { json } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
 
 export function links() {
   return [
@@ -9,14 +12,22 @@ export function links() {
   ];
 }
 
+export async function loader() {
+  const { copy } = await connectToDatabase();
+
+  return json({ copy });
+}
+
 export default function Experience() {
+  const copy = useLoaderData<typeof loader>();
+  const expCopy = copy.copy;
   return (
     <div>
       <CustomNav />
       <div className="experience-container">
         <div className="experience-content">
-          <div className="experience-subtitle">stuff ive built</div>
-          <div className="experience-title">Aka Experience</div>
+          <div className="experience-subtitle">{expCopy?.exp_blurb}</div>
+          <div className="experience-title">{expCopy?.exp_title}</div>
           <p className="experience-paragraph">
             With the core of my experience being in mobile development (native
             and cross platform), I have also worked on multiple web projects, as
@@ -28,14 +39,11 @@ export default function Experience() {
               <li className="experience-listItem">
                 <span className="experience-listIcon">&#10003;</span>
                 <div>
-                  <h3 className="experience-listTitle">Native Mobile</h3>
+                  <h3 className="experience-listTitle">
+                    {expCopy?.exp_list_titles[0]}
+                  </h3>
                   <p className="experience-listDescription">
-                    Working in both UI Kit and SwiftUI. Some experiences Ive
-                    contributed to: enabling private location based payments
-                    safely and securely, enabling users to leverage shopping
-                    habits to make informed grocery purchases and earn rewards
-                    in their insurance app, specialized chatgpt instance based
-                    on proprietary information.
+                    {expCopy?.exp_list_bodies[0]}
                   </p>
                 </div>
               </li>
@@ -43,34 +51,32 @@ export default function Experience() {
                 <span className="experience-listIcon">&#10003;</span>
                 <div>
                   <h3 className="experience-listTitle">
-                    Cross Platform Mobile
+                    {expCopy?.exp_list_titles[1]}
                   </h3>
                   <p className="experience-listDescription">
-                    Contributed to a highly engaging welcome experience focused
-                    on educating and responding to new users intuitively.
+                    {expCopy?.exp_list_bodies[1]}
                   </p>
                 </div>
               </li>
               <li className="experience-listItem">
                 <div className="experience-listIcon">&#10003;</div>
                 <div>
-                  <h3 className="experience-listTitle">Web</h3>
+                  <h3 className="experience-listTitle">
+                    {expCopy?.exp_list_titles[2]}
+                  </h3>
                   <p className="experience-listDescription">
-                    Contributed to an internal LLM chatbot POC pre-gpt era that
-                    was early experimenting with conversational nodes and
-                    pre-determined responses based on conversational flows.
+                    {expCopy?.exp_list_bodies[2]}
                   </p>
                 </div>
               </li>
               <li className="experience-listItem">
                 <span className="experience-listIcon">&#10003;</span>
                 <div>
-                  <h3 className="experience-listTitle">webOS</h3>
+                  <h3 className="experience-listTitle">
+                    {expCopy?.exp_list_titles[3]}
+                  </h3>
                   <p className="experience-listDescription">
-                    Contributed to a companion app in webOS for a large online
-                    and on-air commerce brand. Applicated enabled users to watch
-                    live programming, browse products while removing friction to
-                    purchase.
+                    {expCopy?.exp_list_bodies[3]}
                   </p>
                 </div>
               </li>

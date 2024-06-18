@@ -1,6 +1,9 @@
 import CustomNav from "~/components/customnav";
 import sharedStyles from "~/styles/shared.css";
 import styles from "~/styles/contact.css";
+import { connectToDatabase } from "~/utils/db.server";
+import { json } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
 
 export function links() {
   return [
@@ -9,18 +12,23 @@ export function links() {
   ];
 }
 
+export async function loader() {
+  const { copy } = await connectToDatabase();
+
+  return json({ copy });
+}
+
 export default function Contact() {
+  const copy = useLoaderData<typeof loader>();
+  const contactCopy = copy.copy;
   return (
+    // fix this fucking mess
     <div>
       <CustomNav />
       <div className="container">
         <div className="content">
-          <div className="title">Contact Me</div>
-          <p className="description">
-            If you have any questions or would like to discuss potential
-            opportunities, please dont hesitate to reach out. Ill be happy to
-            connect.
-          </p>
+          <div className="title">{contactCopy?.contact_title}</div>
+          <p className="description">{contactCopy?.contact_body}</p>
           <div className="contactInfo">
             <div className="contactItem">
               <a
