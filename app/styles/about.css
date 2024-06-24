@@ -2,22 +2,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80vh;
-  width: 99vw;
+  margin-top: 1rem;
 }
 
 .about-me-content {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   gap: 4rem;
-  max-width: 80%;
-  max-height: 80%;
+  padding: 7.5rem;
+  overflow: auto;
 }
 
 .about-me-text {
   color: #ffffff;
   padding-right: 3rem;
-  max-height: 60%;
+  overflow-y: auto;
 }
 
 .about-me-title {
@@ -35,8 +35,4 @@
   font-size: 1.2rem;
   color: #34e397;
   margin-bottom: 0.5rem;
-}
-
-.carousel {
-  padding-top: 7.5rem;
 }

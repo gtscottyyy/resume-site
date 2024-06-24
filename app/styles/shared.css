@@ -40,9 +40,15 @@
   text-decoration: none;
 }
 
+.navbar-listitem.active {
+  text-underline-offset: .35rem;
+  text-decoration: underline;
+}
+
 .navbar-listitem:hover {
   color: #34e397;
   text-decoration: underline;
+  text-underline-offset: .35rem;
 }
 
 /* home */

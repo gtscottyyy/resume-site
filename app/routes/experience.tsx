@@ -28,54 +28,52 @@ export default function Experience() {
         <div className="experience-content">
           <div className="experience-subtitle">{expCopy?.exp_blurb}</div>
           <div className="experience-title">{expCopy?.exp_title}</div>
-          <p className="experience-paragraph">{expCopy?.exp_body}</p>
-          <div className="list-container">
-            <ul className="experience-list">
-              <li className="experience-listItem">
-                <span className="experience-listIcon">&#10003;</span>
-                <div>
-                  <h3 className="experience-listTitle">
-                    {expCopy?.exp_list_titles[0]}
-                  </h3>
-                  <p className="experience-listDescription">
-                    {expCopy?.exp_list_bodies[0]}
-                  </p>
-                </div>
-              </li>
-              <li className="experience-listItem">
-                <span className="experience-listIcon">&#10003;</span>
-                <div>
-                  <h3 className="experience-listTitle">
-                    {expCopy?.exp_list_titles[1]}
-                  </h3>
-                  <p className="experience-listDescription">
-                    {expCopy?.exp_list_bodies[1]}
-                  </p>
-                </div>
-              </li>
-              <li className="experience-listItem">
-                <div className="experience-listIcon">&#10003;</div>
-                <div>
-                  <h3 className="experience-listTitle">
-                    {expCopy?.exp_list_titles[2]}
-                  </h3>
-                  <p className="experience-listDescription">
-                    {expCopy?.exp_list_bodies[2]}
-                  </p>
-                </div>
-              </li>
-              <li className="experience-listItem">
-                <span className="experience-listIcon">&#10003;</span>
-                <div>
-                  <h3 className="experience-listTitle">
-                    {expCopy?.exp_list_titles[3]}
-                  </h3>
-                  <p className="experience-listDescription">
-                    {expCopy?.exp_list_bodies[3]}
-                  </p>
-                </div>
-              </li>
-            </ul>
+          <p className="experience-body">{expCopy?.exp_body}</p>
+          <div className="experience-listContainer">
+            <li className="experience-listItem">
+              <span className="experience-listIcon">&#10003;</span>
+              <div>
+                <h3 className="experience-listTitle">
+                  {expCopy?.exp_list_titles[0]}
+                </h3>
+                <p className="experience-listDescription">
+                  {expCopy?.exp_list_bodies[0]}
+                </p>
+              </div>
+            </li>
+            <li className="experience-listItem">
+              <span className="experience-listIcon">&#10003;</span>
+              <div>
+                <h3 className="experience-listTitle">
+                  {expCopy?.exp_list_titles[1]}
+                </h3>
+                <p className="experience-listDescription">
+                  {expCopy?.exp_list_bodies[1]}
+                </p>
+              </div>
+            </li>
+            <li className="experience-listItem">
+              <div className="experience-listIcon">&#10003;</div>
+              <div>
+                <h3 className="experience-listTitle">
+                  {expCopy?.exp_list_titles[2]}
+                </h3>
+                <p className="experience-listDescription">
+                  {expCopy?.exp_list_bodies[2]}
+                </p>
+              </div>
+            </li>
+            <li className="experience-listItem">
+              <span className="experience-listIcon">&#10003;</span>
+              <div>
+                <h3 className="experience-listTitle">
+                  {expCopy?.exp_list_titles[3]}
+                </h3>
+                <p className="experience-listDescription">
+                  {expCopy?.exp_list_bodies[3]}
+                </p>
+              </div>
+            </li>
           </div>
         </div>
       </div>

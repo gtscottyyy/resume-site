@@ -2,15 +2,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
-  width: 99vw;
 }
 
 .experience-content {
   justify-content: center;
-  max-height: 60%;
-  max-width: 60%;
+  max-height: 60vh;
+  max-width: 60vw;
   padding: 2rem;
+  margin-top: 1.5rem;
 }
 
 .experience-subtitle {
@@ -25,42 +24,43 @@
   margin-bottom: 1rem;
 }
 
-.experience-paragraph {
+.experience-body {
   color: #ffffff;
   font-size: 1.2rem;
   line-height: 1.6;
   margin-bottom: 2rem;
 }
 
-.experience-list {
-  list-style: none;
-  padding: 0;
-}
-
 .experience-listItem {
   display: flex;
-  align-items: flex-start;
-  margin-bottom: 1rem;
+  border: #34e397 dashed;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
 }
 
 .experience-listIcon {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: #34e397;
-  margin-right: 1rem;
-  margin-top: 1.25rem;
+  margin-right: 0.5rem;
+  margin-top: 1.5rem;
 }
 
 .experience-listTitle {
   color: #d9d9d9;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
+  margin-bottom: -0.25rem;
 }
 
 .experience-listDescription {
   color: #ffffff;
   font-size: 1.1rem;
+  margin-left: -2rem;
 }
 
-.list-container {
-  display: flex;
-  flex-direction: column;
+.experience-listContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Specify 2 equal columns */
+  grid-template-rows: repeat(2, 1fr); /* Specify 2 equal rows */
+  gap: 1.25rem;
+  justify-content: center;
 }
