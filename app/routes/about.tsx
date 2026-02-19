@@ -33,7 +33,7 @@ export default function About() {
             <p className="about-me-blurb">{aboutCopy?.about_body}</p>
           </div>
           <div className="carousel">
-            <ImageCarousel />
+            <ImageCarousel images={aboutCopy?.carousel_images ?? []} />
           </div>
         </div>
       </div>

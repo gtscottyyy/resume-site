@@ -1,14 +1,14 @@
-import { Link, useLocation } from "@remix-run/react";
-import image2 from "../public/images/headshot.jpeg";
+import { Link, useLocation, useRouteLoaderData } from "@remix-run/react";
 
 export default function CustomNav() {
   const location = useLocation();
+  const root = useRouteLoaderData("root") as { headshot_url: string } | undefined;
 
   return (
     <div className="navbar">
       <Link to="/" className="home-link">
         <div className="circle-icon">
-          <img src={image2} alt="Home" />
+          <img src={root?.headshot_url} alt="Home" />
         </div>
       </Link>
       <div className="navbar-info">

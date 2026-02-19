@@ -1,5 +1,6 @@
 import { cssBundleHref } from "@remix-run/css-bundle";
 import type { LinksFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -8,10 +9,16 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import { connectToDatabase } from "~/utils/db.server";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
 ];
+
+export async function loader() {
+  const { copy } = await connectToDatabase();
+  return json({ headshot_url: copy?.headshot_url ?? "" });
+}
 
 export default function App() {
   return (
