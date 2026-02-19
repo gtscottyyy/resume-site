@@ -2,6 +2,9 @@ import styles from "~/styles/about.css";
 import sharedStyles from "~/styles/shared.css";
 import ImageCarousel from "~/components/imagecarousel";
 import CustomNav from "~/components/customnav";
+import { connectToDatabase } from "~/utils/db.server";
+import { json } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
 
 export function links() {
   return [
@@ -9,34 +12,29 @@ export function links() {
     { rel: "stylesheet", href: styles },
   ];
 }
-export const loader = async () => {
-  // Fetch data or return static data for the about page
-  const data = {
-    /* ... */
-  };
-  return data;
-};
+
+export async function loader() {
+  const { copy } = await connectToDatabase();
+
+  return json({ copy });
+}
 
 export default function About() {
+  const copy = useLoaderData<typeof loader>();
+  const aboutCopy = copy.copy;
   return (
     <div>
       <CustomNav />
-      {/* Todo: Delete some of these */}
       <div className="about-me-container">
         <div className="about-me-content">
           <div className="about-me-text">
-            <h1 className="about-me-title">About Me</h1>
-            <p className="about-me-blurb">
-              {/* Your personal blurb goes here */}
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              euismod nisi vel ex finibus, vel facilisis tortor bibendum. Donec
-              semper auctor justo, vel lobortis mi finibus ac. Lorem ipsum dolor
-              sit amet, consectetur adipiscing elit. Sed euismod nisi vel ex
-              finibus, vel facilisis tortor bibendum. Donec semper auctor justo,
-              vel lobortis mi finibus ac.
-            </p>
+            <div className="about-subtitle">{aboutCopy?.about_blurb}</div>
+            <div className="about-me-title">{aboutCopy?.about_title}</div>
+            <p className="about-me-blurb">{aboutCopy?.about_body}</p>
           </div>
-          <ImageCarousel />
+          <div className="carousel">
+            <ImageCarousel />
+          </div>
         </div>
       </div>
     </div>
