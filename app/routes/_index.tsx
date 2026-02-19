@@ -1,7 +1,7 @@
 import { json, type LinksFunction, type MetaFunction } from "@remix-run/node";
 import CustomNav from "../components/customnav";
 import styles from "~/styles/shared.css";
-import { Link, useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 import { connectToDatabase } from "~/utils/db.server";
 
 export const meta: MetaFunction = () => {
@@ -32,16 +32,18 @@ export default function Index() {
         <div className="content">
           <div className="subtitle">{resumeCopy?.home_blurb}</div>
           <div className="title">{resumeCopy?.home_title}</div>
-          <div className="sameTitle">{resumeCopy?.home_subtitle}</div>
+          <div className="title-secondary">{resumeCopy?.home_subtitle}</div>
           <div className="paragraph">
             <p>{resumeCopy?.home_body}</p>
           </div>
-          <Link
-            to="https://github.com/gtscottyyy/resume-site"
+          <a
+            href="https://github.com/gtscottyyy/resume-site"
             className="button"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             {resumeCopy?.home_button}
-          </Link>
+          </a>
         </div>
       </div>
     </div>

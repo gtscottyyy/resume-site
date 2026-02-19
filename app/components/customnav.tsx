@@ -2,7 +2,7 @@ import { Link, useLocation } from "@remix-run/react";
 import image2 from "../public/images/headshot.jpeg";
 
 export default function CustomNav() {
-  const location = useLocation(); // Get the current location
+  const location = useLocation();
 
   return (
     <div className="navbar">
@@ -13,25 +13,25 @@ export default function CustomNav() {
       </Link>
       <div className="navbar-info">
         <Link
-          to={"/About"}
+          to="/about"
           className={`navbar-listitem ${
-            location.pathname === "/About" ? "active" : ""
+            location.pathname === "/about" ? "active" : ""
           }`}
         >
           1. about
         </Link>
         <Link
-          to={"/Experience"}
+          to="/experience"
           className={`navbar-listitem ${
-            location.pathname === "/Experience" ? "active" : ""
+            location.pathname === "/experience" ? "active" : ""
           }`}
         >
           2. experience
         </Link>
         <Link
-          to={"/Contact"}
+          to="/contact"
           className={`navbar-listitem ${
-            location.pathname === "/Contact" ? "active" : ""
+            location.pathname === "/contact" ? "active" : ""
           }`}
         >
           3. contact

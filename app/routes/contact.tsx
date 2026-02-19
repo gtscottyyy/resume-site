@@ -22,7 +22,6 @@ export default function Contact() {
   const copy = useLoaderData<typeof loader>();
   const contactCopy = copy.copy;
   return (
-    // fix this fucking mess
     <div>
       <CustomNav />
       <div className="container">

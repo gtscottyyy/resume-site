@@ -1,4 +1,4 @@
-import { MongoClient, BSON, Db, ServerApiVersion } from "mongodb";
+import { MongoClient, Db, ServerApiVersion, ObjectId, Document } from "mongodb";
 
 const connectionString = process.env.MONGO_URI ?? "";
 
@@ -12,7 +12,7 @@ const client = new MongoClient(connectionString, {
 
 let cachedClient: MongoClient | null = null;
 let cachedDb: Db | null = null;
-let cachedCopy: BSON.Document | null = null;
+let cachedCopy: Document | null = null;
 
 async function connectToDatabase() {
   if (cachedClient && cachedDb && cachedCopy) {
@@ -25,30 +25,13 @@ async function connectToDatabase() {
   cachedClient = client;
   cachedDb = db;
 
-  // keeping for debugging
-  // console.log(cachedClient);
-  // keeping for debugging
-  // console.log(cachedDb);
-
-  // make data call here and return copy with client and db
-  // Connect the client to the server	(optional starting in v4.7)
-  // Send a ping to confirm a successful connection
-  const ping = await client.db("resume").command({ ping: 1 });
-  console.log(
-    "Pinged your deployment. You successfully connected to MongoDB!",
-    ping
-  );
+  await client.db("resume").command({ ping: 1 });
 
   const copy = await client.db("resume").collection("copy").findOne();
 
   cachedCopy = copy;
 
-  // keeping for debugging
-  // console.log(cachedCopy);
-
   return { client, db, copy };
 }
-
-const ObjectId = BSON.ObjectId;
 
 export { ObjectId, connectToDatabase };
