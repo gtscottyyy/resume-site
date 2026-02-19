@@ -6,11 +6,11 @@ export default function CustomNav() {
 
   return (
     <div className="navbar">
-      <a href="/" className="home-link">
+      <Link to="/" className="home-link">
         <div className="circle-icon">
           <img src={image2} alt="Home" />
         </div>
-      </a>
+      </Link>
       <div className="navbar-info">
         <Link
           to={"/About"}
