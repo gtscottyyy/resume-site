@@ -9,6 +9,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import { useEffect } from "react";
 import { connectToDatabase } from "~/utils/db.server";
 import tokensHref from "~/styles/tokens.css";
 
@@ -26,6 +27,10 @@ export async function loader() {
 }
 
 export default function App() {
+  useEffect(() => {
+    document.documentElement.setAttribute("data-js", "true");
+  }, []);
+
   return (
     <html lang="en">
       <head>

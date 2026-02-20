@@ -14,6 +14,9 @@
   --font-mono: 'JetBrains Mono', 'Courier New', monospace;
   --font-body: 'Inter', system-ui, sans-serif;
 
+  /* Animation */
+  --transition-base: 0.5s ease;
+
   /* Spacing */
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
@@ -22,4 +25,17 @@
   --space-xl: 2rem;
   --space-2xl: 3rem;
   --space-3xl: 4rem;
+}
+
+/* Scroll animations — only active when JS has initialised */
+html[data-js] [data-animate] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--transition-base), transform var(--transition-base);
+  transition-delay: var(--animate-delay, 0s);
+}
+
+html[data-js] [data-animate].animate-in {
+  opacity: 1;
+  transform: translateY(0);
 }
