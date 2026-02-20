@@ -64,7 +64,7 @@ export default function Contact() {
           <TerminalContact />
           <div className="contact-links">
             <a
-              href="https://www.linkedin.com/in/scottyhenry/"
+              href={contactCopy?.linkedin_url}
               className="contact-link"
               target="_blank"
               rel="noopener noreferrer"
