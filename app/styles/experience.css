@@ -40,7 +40,7 @@
 .timeline::before {
   content: '';
   position: absolute;
-  left: 5px;
+  left: 6px;
   top: 8px;
   bottom: 0;
   width: 2px;
@@ -54,7 +54,7 @@
 
 .timeline-dot {
   position: absolute;
-  left: -1.85rem;
+  left: -2rem;
   top: 0.35rem;
   width: 14px;
   height: 14px;
@@ -165,7 +165,7 @@
   }
 
   .timeline-dot {
-    left: -1.4rem;
+    left: -1.5rem;
   }
 
   .timeline-card {

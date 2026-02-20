@@ -237,6 +237,23 @@ body {
 }
 
 @media (max-width: 480px) {
+  .navbar {
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+    margin-right: 0;
+    padding-bottom: 0.5rem;
+  }
+
+  .home-link {
+    margin-left: var(--space-md);
+  }
+
+  .navbar-info {
+    width: 100%;
+    justify-content: center;
+    padding-top: 0;
+  }
+
   .navbar-listitem {
     font-size: 0.75rem;
     margin-right: 0.4rem;
