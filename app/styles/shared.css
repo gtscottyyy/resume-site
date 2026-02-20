@@ -1,60 +1,63 @@
 /* global */
 body {
-  background-color: #0D1823;
+  background-color: var(--color-bg);
+  font-family: var(--font-body);
   margin: 0;
 }
 
-/* nav bar */
+/* nav */
 .navbar {
   display: flex;
   font-size: 1.5rem;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
-  margin-right: 2rem;
+  margin-right: var(--space-xl);
+  padding-top: var(--space-md);
 }
 
 .navbar-info {
-  padding-top: 1rem;
-}
-
-.navbar-name {
-  padding-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
 }
 
 .navbar-button {
-  margin-left: 0.5rem;
+  margin-left: var(--space-sm);
   background-color: transparent;
-  border: 2px solid #34e397;
+  border: 2px solid var(--color-accent);
   border-radius: 5px;
   padding: 10px 20px;
-  color: #ffffff;
-  font-family: monospace;
+  color: var(--color-text-white);
+  font-family: var(--font-mono);
   font-size: 14px;
   cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .navbar-button:hover {
-  background-color: #ffffff;
+  background-color: var(--color-text-white);
   color: #000000;
 }
 
 .navbar-listitem {
-  color: #ffffff;
-  font-family: monospace;
-  font-size: 1.25rem;
-  margin-right: 1rem;
+  color: var(--color-text-white);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  margin-right: var(--space-md);
   text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease;
 }
 
 .navbar-listitem.active {
-  text-underline-offset: .35rem;
+  text-underline-offset: 0.35rem;
   text-decoration: underline;
 }
 
 .navbar-listitem:hover {
-  color: #34e397;
+  color: var(--color-accent);
   text-decoration: underline;
-  text-underline-offset: .35rem;
+  text-underline-offset: 0.35rem;
 }
 
 /* home */
@@ -62,112 +65,188 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  min-height: 80vh;
   width: 100vw;
+  box-sizing: border-box;
+  padding: var(--space-xl) var(--space-xl);
 }
 
 .content {
   text-align: start;
-  height: 50%;
   width: 50%;
+  max-width: 680px;
 }
 
 .subtitle {
-  color: #34e397;
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  margin-bottom: var(--space-sm);
 }
 
 .title {
-  color: #e0e0e0;
+  color: var(--color-text-primary);
   font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+  font-weight: 600;
+  margin-bottom: var(--space-md);
 }
 
 .title-secondary {
-  color: #e0e0e0;
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
+  color: var(--color-text-secondary);
+  font-size: 2rem;
+  margin-bottom: var(--space-lg);
 }
 
 .paragraph {
-  color: #e0e0e0;
-  font-size: 1.25rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
+  color: var(--color-text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: var(--space-xl);
 }
 
 .button {
   background-color: transparent;
-  border: 2px solid #34e397;
+  border: 2px solid var(--color-accent);
   border-radius: 5px;
   padding: 10px 20px;
-  color: #ffffff;
-  font-family: monospace;
+  color: var(--color-text-white);
+  font-family: var(--font-mono);
   font-size: 14px;
   cursor: pointer;
   text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .button:hover {
-  background-color: #ffffff;
+  background-color: var(--color-text-white);
   color: #000000;
+}
+
+/* nav avatar */
+.home-link {
+  margin-right: auto;
+  margin-left: var(--space-lg);
+}
+
+.circle-icon {
+  width: 55px;
+  height: 55px;
+  border: 2px solid var(--color-accent);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.circle-icon img {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* carousel */
 .carousel-container {
   display: flex;
   flex-direction: column;
-  width: 325px;
-  height: 325px;
+  width: 300px;
+  height: 300px;
 }
 
 .carousel-button-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 1rem;
+  margin-top: var(--space-md);
 }
 
 .carousel-image {
-  min-width: 100%;
-  min-height: 100%;
+  width: 100%;
+  height: 100%;
   border-radius: 8px;
   object-fit: cover;
 }
 
 .carousel-button {
   background-color: transparent;
-  border: 2px solid #ffffff;
+  border: 2px solid var(--color-border-hover);
   border-radius: 5px;
-  padding: 10px 20px;
-  color: #ffffff;
-  font-family: monospace;
+  padding: 8px 16px;
+  color: var(--color-text-white);
+  font-family: var(--font-mono);
   font-size: 14px;
   cursor: pointer;
   width: 40%;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
-/* home button */
-.home-link {
-  margin-right: auto;
-  margin-left: 1.5rem;
-  margin-top: 1rem;
+.carousel-button:hover {
+  border-color: var(--color-accent);
+  background-color: var(--color-accent-faint);
 }
 
-.circle-icon {
-  width: 55px;
-  height: 55px;
-  border: 2px solid #34e397;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* ── Mobile ────────────────────────────────── */
+@media (max-width: 768px) {
+  .navbar {
+    margin-right: var(--space-md);
+  }
+
+  .navbar-listitem {
+    font-size: 0.8rem;
+    margin-right: var(--space-sm);
+  }
+
+  .navbar-button {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .circle-icon {
+    width: 42px;
+    height: 42px;
+    margin-left: var(--space-md);
+  }
+
+  .overview {
+    min-height: auto;
+    padding: var(--space-2xl) var(--space-xl);
+    align-items: flex-start;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .title-secondary {
+    font-size: 1.6rem;
+  }
+
+  .paragraph {
+    font-size: 1rem;
+  }
+
+  .carousel-container {
+    width: 260px;
+    height: 260px;
+  }
 }
 
-.circle-icon img {
-  border-radius: 50%;
-  max-width: 100%;
-  max-height: 100%;
+@media (max-width: 480px) {
+  .navbar-listitem {
+    font-size: 0.75rem;
+    margin-right: 0.4rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .title-secondary {
+    font-size: 1.4rem;
+  }
 }

@@ -2,37 +2,66 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 1rem;
+  padding: var(--space-xl) var(--space-xl) var(--space-3xl);
 }
 
 .about-me-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 4rem;
-  padding: 7.5rem;
-  overflow: auto;
+  gap: var(--space-3xl);
+  max-width: 1100px;
+  width: 100%;
+  padding: var(--space-xl);
 }
 
 .about-me-text {
-  color: #ffffff;
-  padding-right: 3rem;
-  overflow-y: auto;
-}
-
-.about-me-title {
-  color: #ffffff;
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.about-me-blurb {
-  font-size: 1.2rem;
-  line-height: 1.5;
+  color: var(--color-text-white);
+  flex: 1;
 }
 
 .about-subtitle {
-  font-size: 1.2rem;
-  color: #34e397;
-  margin-bottom: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
+}
+
+.about-me-title {
+  color: var(--color-text-primary);
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: var(--space-lg);
+}
+
+.about-me-blurb {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  white-space: pre-line;
+}
+
+/* ── Mobile ────────────────────────────────── */
+@media (max-width: 768px) {
+  .about-me-content {
+    flex-direction: column;
+    padding: var(--space-xl) var(--space-md);
+    gap: var(--space-xl);
+    align-items: flex-start;
+  }
+
+  .about-me-title {
+    font-size: 2rem;
+  }
+
+  .about-me-blurb {
+    font-size: 1rem;
+  }
+
+  .carousel {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 }

@@ -1,40 +1,40 @@
 .experience-container {
   display: flex;
   justify-content: center;
-  padding: 2rem 1rem 6rem;
+  padding: var(--space-xl) var(--space-md) 6rem;
 }
 
 .experience-content {
   width: 100%;
   max-width: 800px;
-  padding: 0 1rem;
+  padding: 0 var(--space-md);
 }
 
 .experience-subtitle {
+  font-family: var(--font-mono);
   font-size: 1rem;
-  color: #34e397;
-  font-family: monospace;
-  margin-bottom: 0.5rem;
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
 }
 
 .experience-title {
-  color: #d9d9d9;
+  color: var(--color-text-primary);
   font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+  font-weight: 600;
+  margin-bottom: var(--space-md);
 }
 
 .experience-body {
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
   font-size: 1.1rem;
   line-height: 1.7;
-  margin-bottom: 3rem;
+  margin-bottom: var(--space-2xl);
 }
 
 /* Timeline */
 .timeline {
   position: relative;
-  padding-left: 2rem;
+  padding-left: var(--space-xl);
 }
 
 .timeline::before {
@@ -44,12 +44,12 @@
   top: 8px;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(to bottom, #34e397, rgba(52, 227, 151, 0.05));
+  background: linear-gradient(to bottom, var(--color-accent), rgba(52, 227, 151, 0.05));
 }
 
 .timeline-item {
   position: relative;
-  margin-bottom: 2.5rem;
+  margin-bottom: var(--space-2xl);
 }
 
 .timeline-dot {
@@ -59,20 +59,20 @@
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: #34e397;
-  border: 2px solid #0D1823;
+  background: var(--color-accent);
+  border: 2px solid var(--color-bg);
   box-shadow: 0 0 10px rgba(52, 227, 151, 0.5);
 }
 
 .timeline-card {
-  padding: 1.5rem;
-  border: 1px solid rgba(52, 227, 151, 0.15);
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border);
   border-radius: 8px;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .timeline-card:hover {
-  border-color: rgba(52, 227, 151, 0.45);
+  border-color: var(--color-border-hover);
   box-shadow: 0 0 24px rgba(52, 227, 151, 0.05);
 }
 
@@ -84,53 +84,54 @@
 }
 
 .timeline-dates {
-  font-family: monospace;
-  color: #34e397;
+  font-family: var(--font-mono);
+  color: var(--color-accent);
   font-size: 0.85rem;
 }
 
 .timeline-badge {
-  font-family: monospace;
+  font-family: var(--font-mono);
   font-size: 0.7rem;
-  background: #34e397;
-  color: #0D1823;
+  background: var(--color-accent);
+  color: var(--color-bg);
   padding: 2px 8px;
   border-radius: 4px;
-  font-weight: bold;
+  font-weight: 500;
   letter-spacing: 0.06em;
 }
 
 .timeline-company {
-  color: #e0e0e0;
+  color: var(--color-text-primary);
   font-size: 1.6rem;
-  font-weight: bold;
+  font-weight: 600;
   margin-bottom: 0.2rem;
 }
 
 .timeline-role {
-  color: rgba(52, 227, 151, 0.65);
-  font-family: monospace;
+  font-family: var(--font-mono);
+  color: var(--color-accent-dim);
   font-size: 0.9rem;
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-md);
 }
 
 .timeline-description {
-  color: #a0a0a0;
+  font-family: var(--font-body);
+  color: var(--color-text-secondary);
   font-size: 1rem;
   line-height: 1.7;
-  margin-bottom: 1.25rem;
+  margin-bottom: var(--space-lg);
 }
 
 .timeline-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: var(--space-sm);
 }
 
 .timeline-tag {
-  font-family: monospace;
+  font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: #34e397;
+  color: var(--color-accent);
   border: 1px solid rgba(52, 227, 151, 0.3);
   padding: 3px 10px;
   border-radius: 20px;
@@ -138,5 +139,48 @@
 }
 
 .timeline-tag:hover {
-  background: rgba(52, 227, 151, 0.1);
+  background: var(--color-accent-faint);
+}
+
+/* ── Mobile ────────────────────────────────── */
+@media (max-width: 768px) {
+  .experience-container {
+    padding: var(--space-md) 0 var(--space-3xl);
+  }
+
+  .experience-content {
+    padding: 0 var(--space-sm);
+  }
+
+  .experience-title {
+    font-size: 2rem;
+  }
+
+  .experience-body {
+    font-size: 1rem;
+  }
+
+  .timeline {
+    padding-left: var(--space-lg);
+  }
+
+  .timeline-dot {
+    left: -1.4rem;
+  }
+
+  .timeline-card {
+    padding: var(--space-md);
+  }
+
+  .timeline-company {
+    font-size: 1.3rem;
+  }
+
+  .timeline-role {
+    font-size: 0.8rem;
+  }
+
+  .timeline-description {
+    font-size: 0.95rem;
+  }
 }

@@ -1,0 +1,25 @@
+:root {
+  /* Colors */
+  --color-bg: #0D1823;
+  --color-accent: #34e397;
+  --color-accent-dim: rgba(52, 227, 151, 0.65);
+  --color-accent-faint: rgba(52, 227, 151, 0.1);
+  --color-border: rgba(52, 227, 151, 0.15);
+  --color-border-hover: rgba(52, 227, 151, 0.45);
+  --color-text-primary: #e0e0e0;
+  --color-text-secondary: #a0a0a0;
+  --color-text-white: #ffffff;
+
+  /* Typography */
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+}
