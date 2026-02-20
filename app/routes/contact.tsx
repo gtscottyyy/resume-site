@@ -53,7 +53,7 @@ export async function action({ request }: ActionFunctionArgs) {
       from: "Portfolio Contact <onboarding@resend.dev>",
       to: [process.env.CONTACT_EMAIL!],
       subject: `Portfolio message from ${name}`,
-      reply_to: email,
+      replyTo: email,
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
     });
     return json({ ok: true });

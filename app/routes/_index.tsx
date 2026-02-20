@@ -3,6 +3,7 @@ import CustomNav from "../components/customnav";
 import styles from "~/styles/shared.css";
 import { useLoaderData } from "@remix-run/react";
 import { connectToDatabase } from "~/utils/db.server";
+import { getGitHubActivity, timeAgo } from "~/utils/github.server";
 import { useScrollAnimation } from "~/hooks/useScrollAnimation";
 
 export const meta: MetaFunction = () => {
@@ -23,14 +24,18 @@ export const meta: MetaFunction = () => {
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
 export async function loader() {
-  const { copy } = await connectToDatabase();
-  return json({ copy });
+  const [{ copy }, activity] = await Promise.all([
+    connectToDatabase(),
+    getGitHubActivity(),
+  ]);
+  return json({ copy, activity });
 }
 
 export default function Index() {
   useScrollAnimation();
-  const copy = useLoaderData<typeof loader>();
-  const resumeCopy = copy.copy;
+  const { copy, activity } = useLoaderData<typeof loader>();
+  const resumeCopy = copy;
+
   return (
     <div>
       <CustomNav />
@@ -47,6 +52,36 @@ export default function Index() {
           </a>
         </div>
       </div>
+
+      {activity.length > 0 && (
+        <div className="activity-section" data-animate>
+          <div className="activity-header">
+            <span className="activity-label">// recent activity</span>
+            <a
+              href="https://github.com/gtscottyyy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="activity-github-link"
+            >
+              github ↗
+            </a>
+          </div>
+          <div className="activity-list">
+            {activity.map((item, i) => (
+              <div key={i} className="activity-item">
+                <div className="activity-meta">
+                  <span className="activity-repo">{item.repo}</span>
+                  <span className="activity-dot">·</span>
+                  <span className="activity-branch">{item.branch}</span>
+                  <span className="activity-dot">·</span>
+                  <span className="activity-time">{timeAgo(item.createdAt)}</span>
+                </div>
+                <div className="activity-message">{item.message}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
