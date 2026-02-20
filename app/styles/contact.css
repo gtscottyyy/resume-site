@@ -1,16 +1,27 @@
-.container {
+.contact-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 70vh;
-  padding: var(--space-xl);
-  box-sizing: border-box;
+  padding: var(--space-xl) var(--space-xl) 6rem;
 }
 
-.content {
-  max-width: 600px;
+.contact-content {
   width: 100%;
-  text-align: center;
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.contact-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-subtitle {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
 }
 
 .title {
@@ -25,57 +36,149 @@
   color: var(--color-text-secondary);
   font-size: 1.1rem;
   line-height: 1.7;
-  margin-bottom: var(--space-2xl);
+  margin: 0;
 }
 
-.contactInfo {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  gap: var(--space-2xl);
-  flex-wrap: wrap;
+/* Terminal */
+.terminal {
+  font-family: var(--font-mono);
+  background: #080f17;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.contactItem {
+.terminal-titlebar {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.65rem 1rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: var(--space-sm);
+  gap: 0.4rem;
+  border-bottom: 1px solid var(--color-border);
 }
 
-.contactIcon {
-  font-size: 2rem;
+.terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.dot-red    { background: #ff5f56; }
+.dot-yellow { background: #ffbd2e; }
+.dot-green  { background: #27c93f; }
+
+.terminal-filename {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  margin: 0 auto;
+}
+
+.terminal-body {
+  padding: var(--space-lg);
+  min-height: 260px;
+  cursor: text;
+}
+
+.terminal-entry {
+  margin-bottom: var(--space-md);
+}
+
+.terminal-entry.dim .terminal-arrow,
+.terminal-entry.dim .terminal-row > span:last-child {
+  color: var(--color-text-secondary);
+  opacity: 0.6;
+}
+
+.terminal-entry.dim .terminal-response span {
+  color: var(--color-text-secondary);
+  opacity: 0.7;
+}
+
+.terminal-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--color-accent);
+  line-height: 1.6;
+}
+
+.terminal-response {
+  padding-left: 1.25rem;
+  color: var(--color-text-primary);
+}
+
+.terminal-response span {
+  color: var(--color-text-primary);
+}
+
+.terminal-arrow {
+  color: var(--color-accent);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.terminal-underscore {
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+}
+
+.terminal-input {
+  background: transparent;
+  border: none;
+  outline: none;
   color: var(--color-text-white);
-  text-decoration: none;
-  transition: transform 0.2s ease;
-  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  caret-color: var(--color-accent);
+  width: 100%;
 }
 
-.contactIcon:hover {
-  transform: scale(1.15);
+.terminal-result {
+  font-size: 0.95rem;
+  margin: var(--space-sm) 0 0;
 }
 
-.contactLink {
-  text-decoration: none;
+.terminal-result.success  { color: var(--color-accent); }
+.terminal-result.cancelled { color: var(--color-text-secondary); }
+.terminal-result.error    { color: #ff5f56; }
+
+.terminal-reset {
+  background: none;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 0;
 }
 
-.contactText {
+.terminal-result.cancelled .terminal-reset { color: var(--color-text-secondary); }
+.terminal-result.error .terminal-reset     { color: #ff5f56; }
+
+/* Links below terminal */
+.contact-links {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.contact-link {
   font-family: var(--font-mono);
   font-size: 0.9rem;
   color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact-link:hover {
+  color: var(--color-accent);
 }
 
 /* ── Mobile ────────────────────────────────── */
 @media (max-width: 768px) {
-  .container {
-    min-height: auto;
-    padding: var(--space-2xl) var(--space-xl);
-    align-items: flex-start;
-  }
-
-  .content {
-    text-align: left;
+  .contact-container {
+    padding: var(--space-xl) var(--space-md) 4rem;
   }
 
   .title {
@@ -86,8 +189,8 @@
     font-size: 1rem;
   }
 
-  .contactInfo {
-    justify-content: flex-start;
-    gap: var(--space-xl);
+  .terminal-body {
+    min-height: 220px;
+    padding: var(--space-md);
   }
 }
