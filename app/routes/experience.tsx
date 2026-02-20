@@ -1,3 +1,4 @@
+import { useState } from "react";
 import CustomNav from "~/components/customnav";
 import sharedStyles from "~/styles/shared.css";
 import styles from "~/styles/experience.css";
@@ -47,6 +48,29 @@ export default function Experience() {
   const { copy } = useLoaderData<typeof loader>();
   const roles: ExpRole[] = (copy as any)?.experience ?? [];
 
+  const [activeFilters, setActiveFilters] = useState<Set<string>>(new Set());
+
+  // Collect unique tags in order of first appearance across all roles
+  const allTags: string[] = [];
+  const seen = new Set<string>();
+  roles.forEach((role) => {
+    role.tags.forEach((tag) => {
+      if (!seen.has(tag)) {
+        seen.add(tag);
+        allTags.push(tag);
+      }
+    });
+  });
+
+  const toggleFilter = (tag: string) => {
+    setActiveFilters((prev) => {
+      const next = new Set(prev);
+      if (next.has(tag)) next.delete(tag);
+      else next.add(tag);
+      return next;
+    });
+  };
+
   return (
     <div>
       <CustomNav />
@@ -57,33 +81,77 @@ export default function Experience() {
             <div className="experience-title">{(copy as any)?.exp_title}</div>
             <p className="experience-body">{(copy as any)?.exp_body}</p>
           </div>
-          <div className="timeline">
-            {roles.map((item, index) => (
-              <div
-                key={index}
-                className="timeline-item"
-                data-animate
-                style={{ "--animate-delay": `${index * 0.1}s` } as React.CSSProperties}
+
+          <div
+            className="filter-bar"
+            data-animate
+            style={{ "--animate-delay": "0.1s" } as React.CSSProperties}
+          >
+            <button
+              className={`filter-pill${activeFilters.size === 0 ? " filter-pill-active" : ""}`}
+              onClick={() => setActiveFilters(new Set())}
+            >
+              all
+            </button>
+            {allTags.map((tag) => (
+              <button
+                key={tag}
+                className={`filter-pill${activeFilters.has(tag) ? " filter-pill-active" : ""}`}
+                onClick={() => toggleFilter(tag)}
               >
-                <div className="timeline-dot" />
-                <div className="timeline-card">
-                  <div className="timeline-header">
-                    <span className="timeline-dates">{item.dates}</span>
-                    {item.dates === "Current" && (
-                      <span className="timeline-badge">CURRENT</span>
-                    )}
-                  </div>
-                  <div className="timeline-company">{item.company}</div>
-                  <div className="timeline-role">{item.role} — {item.project}</div>
-                  <p className="timeline-description">{item.description}</p>
-                  <div className="timeline-tags">
-                    {item.tags.map((tag, i) => (
-                      <span key={i} className="timeline-tag">{tag}</span>
-                    ))}
+                {tag}
+              </button>
+            ))}
+          </div>
+
+          <div className="timeline">
+            {roles.map((item, index) => {
+              const visible =
+                activeFilters.size === 0 ||
+                item.tags.some((tag) => activeFilters.has(tag));
+              return (
+                <div
+                  key={index}
+                  className="timeline-item"
+                  data-animate
+                  style={{
+                    "--animate-delay": `${index * 0.1}s`,
+                    display: visible ? "" : "none",
+                  } as React.CSSProperties}
+                >
+                  <div className="timeline-dot" />
+                  <div className="timeline-card">
+                    <div className="timeline-header">
+                      <span className="timeline-dates">{item.dates}</span>
+                      {item.dates === "Current" && (
+                        <span className="timeline-badge">CURRENT</span>
+                      )}
+                    </div>
+                    <div className="timeline-company">{item.company}</div>
+                    <div className="timeline-role">
+                      {item.role} — {item.project}
+                    </div>
+                    <p className="timeline-description">{item.description}</p>
+                    <div className="timeline-tags">
+                      {item.tags.map((tag, i) => (
+                        <span
+                          key={i}
+                          className={`timeline-tag${activeFilters.has(tag) ? " timeline-tag-active" : ""}`}
+                          onClick={() => toggleFilter(tag)}
+                          role="button"
+                          tabIndex={0}
+                          onKeyDown={(e) =>
+                            e.key === "Enter" && toggleFilter(tag)
+                          }
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

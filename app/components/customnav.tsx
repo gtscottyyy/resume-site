@@ -36,11 +36,7 @@ export default function CustomNav() {
         >
           3. contact
         </Link>
-        <a
-          href="https://drive.google.com/file/d/1aWUoPr_HfWGbzKeQfT76OFfs6T5c6kOe/view?usp=sharing"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="/resume.pdf" download="scotty-henry-resume.pdf">
           <button className="navbar-button">resume</button>
         </a>
       </div>
