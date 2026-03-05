@@ -19,7 +19,7 @@ A full-stack web app that serves as an online presence / resume replacement. Con
 | PDF | @react-pdf/renderer |
 | AI | Anthropic (Claude Haiku) |
 | Styling | Plain CSS |
-| Hosting | Vercel |
+| Hosting | Self-hosted (Docker + Caddy + Cloudflare) |
 
 ## Features
 
@@ -80,7 +80,7 @@ SPOTIFY_REFRESH_TOKEN=
 ANTHROPIC_API_KEY=
 ```
 
-All env vars are managed via Vercel in production. For local dev, create a `.env` file at the project root with the same vars.
+In production, env vars are set on the host and passed into the Docker container. For local dev, create a `.env` file at the project root with the same vars.
 
 ### Spotify Setup (one-time)
 
@@ -106,6 +106,14 @@ The app runs at `http://localhost:3000` by default.
 npm run build
 npm run start
 ```
+
+## Deployment
+
+The production site runs at [scottyhenry.com](https://scottyhenry.com) with the following stack:
+
+- **Docker** — multi-stage build on Node 22 Alpine, runs the compiled Remix app
+- **Caddy** — reverse proxy handling HTTPS termination and routing to the container
+- **Cloudflare** — sits in front for DDoS protection, proxying, and CDN
 
 ## Content Model
 
