@@ -14,7 +14,7 @@
     "@react-pdf/renderer": "^4.3.2",
     "@remix-run/css-bundle": "^2.17.4",
     "@remix-run/node": "^2.17.4",
-    "@remix-run/react": "^2.17.4",
+    "@remix-run/react": "^2.17.5",
     "@remix-run/serve": "^2.17.4",
     "isbot": "^4.1.0",
     "mongodb": "^6.7.0",
